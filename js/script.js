@@ -1,3 +1,4 @@
+let square;
 const DomElement = function (
   selector,
   height,
@@ -68,14 +69,14 @@ const moveSquare = function (event) {
 
 const loaderProg = () => {
   const myClass = ".myclass";
-  const elem1 = new DomElement(myClass, "200px", "200px", "lightblue", "30px");
+  const elem1 = new DomElement(myClass, "100px", "100px", "red", "30px");
   const elem2 = new DomElement("#mydiv", "100px", "200px", "blue");
 
   elem1.setText("Hello, World!!!");
   elem1.setPosition("absolute");
 
   document.body.append(elem1.createElem());
-  const square = document.querySelector(myClass);
+  square = document.querySelector(myClass);
   document.addEventListener("keydown", moveSquare);
 };
 document.addEventListener("DOMContentLoaded", loaderProg);
