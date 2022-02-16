@@ -33,7 +33,7 @@ const DomElement = function (
 
 const moveSquare = function (event) {
   let a;
-  const step = 10;
+  let step = 10;
 
   if (event.code === "ArrowLeft") {
     if (square.style.left === "") {
@@ -68,12 +68,18 @@ const moveSquare = function (event) {
 
 const loaderProg = () => {
   const myClass = ".myclass";
-  const elem1 = new DomElement(myClass, "100px", "100px", "lightblue", "18px");
+  const elem1 = new DomElement(myClass, "200px", "200px", "lightblue", "30px");
   const elem2 = new DomElement("#mydiv", "100px", "200px", "blue");
+
   elem1.setText("Hello, World!!!");
   elem1.setPosition("absolute");
+
   document.body.append(elem1.createElem());
   const square = document.querySelector(myClass);
   document.addEventListener("keydown", moveSquare);
 };
 document.addEventListener("DOMContentLoaded", loaderProg);
+
+//console.dir(square);
+// elem2.createElem();
+// console.log(elem2.el);
