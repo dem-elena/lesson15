@@ -30,53 +30,50 @@ const DomElement = function (
     this.el.style.position = pos;
   };
 };
-const myClass = ".myclass";
-const elem1 = new DomElement(myClass, "200px", "200px", "lightblue", "30px");
-const elem2 = new DomElement("#mydiv", "100px", "200px", "blue");
-// console.log(elem);
-// console.log(elem2);
-elem1.setText("Hello, World!!!");
-elem1.setPosition("absolute");
-//elem1.createElem();
-//console.log(elemDiv.setText("Hello, World!!!"));
-document.body.append(elem1.createElem());
-const square = document.querySelector(myClass);
-//console.dir(square);
+
 const moveSquare = function (event) {
   let a;
-  // console.dir(square);
+  const step = 10;
+
   if (event.code === "ArrowLeft") {
     if (square.style.left === "") {
-      a = -20;
+      a = -step;
     } else {
-      a = parseInt(square.style.left) - 20;
+      a = parseInt(square.style.left) - step;
     }
     square.style.left = a + "px";
   } else if (event.code === "ArrowRight") {
     if (square.style.left === "") {
-      a = 20;
+      a = step;
     } else {
-      a = parseInt(square.style.left) + 20;
+      a = parseInt(square.style.left) + step;
     }
     square.style.left = a + "px";
   } else if (event.code === "ArrowUp") {
     if (square.style.top === "") {
-      a = -20;
+      a = -step;
     } else {
-      a = parseInt(square.style.top) - 20;
+      a = parseInt(square.style.top) - step;
     }
     square.style.top = a + "px";
   } else if (event.code === "ArrowDown") {
     if (square.style.top === "") {
-      a = 20;
+      a = step;
     } else {
-      a = parseInt(square.style.top) + 20;
+      a = parseInt(square.style.top) + step;
     }
     square.style.top = a + "px";
   }
 };
 
-document.addEventListener("keydown", moveSquare);
-//console.dir(square);
-// elem2.createElem();
-// console.log(elem2.el);
+const loaderProg = () => {
+  const myClass = ".myclass";
+  const elem1 = new DomElement(myClass, "100px", "100px", "lightblue", "18px");
+  const elem2 = new DomElement("#mydiv", "100px", "200px", "blue");
+  elem1.setText("Hello, World!!!");
+  elem1.setPosition("absolute");
+  document.body.append(elem1.createElem());
+  const square = document.querySelector(myClass);
+  document.addEventListener("keydown", moveSquare);
+};
+document.addEventListener("DOMContentLoaded", loaderProg);
